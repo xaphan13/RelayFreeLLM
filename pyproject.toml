@@ -1,0 +1,77 @@
+[project]
+name = "relayfreellm"
+version = "1.0.0"
+
+requires-python = ">=3.11"
+
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn>=0.30.0",
+    "google-genai>=1.0.0",
+    "cerebras-cloud-sdk>=1.0.0",
+    "groq>=0.20.0",
+    "mistralai>=1.0.0",
+    "requests>=2.32.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.7.1",
+    "httpx>=0.27.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.14.10",
+    "black>=25.0.0",
+]
+
+[tool.uv]
+package = false
+
+
+
+[tool.ruff.lint]
+ignore = [
+    "F401",
+    "E402",
+    "F541"
+]
+
+
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+exclude = [
+    ".git",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".venv",
+    "venv",
+    ".vscode",
+    "__pypackages__",
+    "__pycache__",
+    "_build",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages"
+]
+
+
+
+
+[tool.black]
+line-length = 120
+exclude = '''
+/(
+  # directories
+  \.venv
+  | venv
+  | \.git
+  | \.log
+  | \.mypy_cache
+  | \.tox
+  | build
+  | dist
+)/
+'''

@@ -2,6 +2,8 @@
 
 > **One endpoint. More free AI than any single provider. Less rate limit headaches.**
 
+For AI coding assistants: read AGENTS.md and the docs/ folder before exploring the source code — they are the single source of truth and prevent blind full-repo walks.
+
 Don't want to pay $$/month to use AI Models? RelayFreeLLM is an open-source gateway that combines **multiple free-tier providers** into a single OpenAI-compatible API — so you get aggregately more free inference with automatic failover.
 
 ```
@@ -62,8 +64,10 @@ No code changes. No retry logic. No 429 errors breaking your app.
 ### 1. Install
 ```bash
 git clone https://github.com/msmarkgu/RelayFreeLLM.git && cd RelayFreeLLM
-pip install -r requirements.txt
+uv sync
 ```
+
+> **Note:** This installs dependencies with [uv](https://docs.astral.sh/uv/) (it creates a `.venv` for you). If you don't have uv yet: `pip install uv`, or see the [official install guide](https://docs.astral.sh/uv/getting-started/installation/).
 
 ### 2. Add free API keys
 Create a `.env` file in the project root folder:
@@ -76,7 +80,7 @@ NVIDIA_APIKEY=      # build.nvidia.com
 
 ### 3. Verify connectivity (optional but recommended)
 ```bash
-python -m tests.test_models_availability
+uv run python -m tests.test_models_availability
 ```
 
 <details>
@@ -117,7 +121,7 @@ TOTAL: 22/22 models available.
 
 ### 4. Start the server
 ```bash
-python -m src.server
+uv run python -m src.server
 ```
 
 ### 4.1 Run with Docker

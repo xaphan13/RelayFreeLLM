@@ -8,6 +8,7 @@ __pycache__/
 .Python
 env/
 venv/
+.venv/
 build/
 dist/
 *.egg-info
@@ -17,6 +18,5 @@ logs/
 .vscode/
 *.db
 
-# Dockerfile and requirements kept
+# Dockerfile itself is not needed inside the image
 Dockerfile
-requirements.txt
